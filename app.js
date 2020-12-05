@@ -1,4 +1,3 @@
-
 var express = require("express"); 
 const path = require('path');
 const cfenv = require('cfenv');
@@ -9,21 +8,20 @@ var url = process.env.url
 app.set('port', (process.env.PORT || 9981))
 app.use(express.static(__dirname + '/images'))
 
+
 /*
 app.get("/getCall", function(req,res){ 
 console.log("GET Method caled");
 console.log(__dirname);
-
 res.send("<h2>Welcome to Node JS express app</h2>"+appEnv.url+appEnv.port+port+process.env.LOGNAME);
-
 }).listen(9009);
 console.log(__dirname+"/images/mithunlogo.jpg");
 */
-app.get('/getRequest', function(request, response) {
+app.get('/mithuntechnologies', function(request, response) {
     //response.send("<h2><center>Welcome to Node JS app</h2>");
     response.write("<h2><center><u>Node JS  Application </u></center></h2>");
 	
-    response.write("<h2><center>Welcome to Node JS Sample Application. <center></h2>" );
+    response.write("<h2><center>Welcome to  Mithun Technologies. Please Contact +91-9980923226 for more information or send an email to devopstrainingblr@gmail.com <center></h2>" );
     response.end();
     
   })
@@ -43,10 +41,11 @@ app.get("/html", function(req,res){
         res.type('json');
         //res.type('application/json');
         //res.json({'name': 'Mithun Reddy L'});
-        res.send({'name': 'Mithun Reddy L',
-		          'technology': 'DevOps',
-		          'Phone': '+91 99809 23216',
-		          'email': 'bhaskar0504@gmail.com'
+        res.send({
+		'name': 'Mithun Technologies',
+		'technology': 'DevOps',
+		'contact' : '9980923226',
+		'email': 'devopstrainingblr@gmail.com'
 	            });
         
         });
@@ -69,15 +68,10 @@ app.get("/status-code-500", function(req, res) {
 
 app.get('/redirect', function(req, res) {
     //Send status 300
-        res.redirect('http://google.com.com');
+        res.redirect('http://mithuntechnologies.com');
     });
     
  
     app.listen(app.get('port'), function() {
-        console.log("Node JS app is running at http://localhost:" + app.get('port'));
+        console.log("Node JS app is running at http://localhost:" + app.get('port') +"/mithuntechnologies");
       })
-    
-
-
-
-
